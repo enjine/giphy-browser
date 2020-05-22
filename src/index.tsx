@@ -1,13 +1,21 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import App from './App';
-import { store } from './app/store';
+import { BrowserRouter as Router, Route, Switch } from 'react-router-dom'
 import { Provider } from 'react-redux';
 import * as serviceWorker from './serviceWorker';
+import { store } from './app/store';
+import { GiphyBrowser, GiphyDetail } from './features/giphy-browser';
+
 
 ReactDOM.render(
   <Provider store={store}>
-    <App />
+    <Router>
+      <Switch>
+        <Route path="/" exact component={GiphyBrowser} />
+        <Route path="/:id" exact component={GiphyDetail} />
+        <Route render={() => (<h1>404 Not Found</h1>)} />
+      </Switch>
+    </Router>
   </Provider>,
   document.getElementById('root')
 );

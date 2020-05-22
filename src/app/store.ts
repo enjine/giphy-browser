@@ -1,9 +1,9 @@
 import { configureStore, ThunkAction, Action } from '@reduxjs/toolkit';
-import counterReducer from '../features/counter/counterSlice';
+import giphyReducer from '../features/giphy-browser/slice';
 
 export const store = configureStore({
   reducer: {
-    counter: counterReducer,
+    giphy: giphyReducer,
   },
 });
 
