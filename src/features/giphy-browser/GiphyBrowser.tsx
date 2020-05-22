@@ -65,7 +65,7 @@ export const GiphyBrowser: React.FC<BrowserProps> = (props) => {
   return (
     <Layouts.Main>
       <header>
-        <Typography variant="h3">Giphy Infinite Scroller</Typography>
+        <Typography variant="h3">Giphy Browser</Typography>
         <GiphySearch />
       </header>
       <InfiniteScroll

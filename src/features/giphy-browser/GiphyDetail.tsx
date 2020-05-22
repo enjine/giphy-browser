@@ -1,30 +1,39 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, SyntheticEvent } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { useParams } from 'react-router-dom';
+import { Gif } from '@giphy/react-components';
+import { IGif } from '@giphy/js-types';
 
 import { loadDetails, selectDetail } from './slice';
 import Layouts from '../../layouts';
-
-import { Gif } from '@giphy/react-components';
 
 export const GiphyDetail = () => {
   const dispatch = useDispatch();
   const { id } = useParams();
   const items = useSelector(selectDetail);
-  console.log('items', items, id);
+
   useEffect(() => {
     if (!items || !items.length) {
       dispatch(loadDetails(id));
     }
   });
 
-  console.log('gif', items);
+  const onClick = (gif: IGif, e: SyntheticEvent) => {
+    e.preventDefault();
+    e.persist();
+    (e.target as HTMLElement).requestFullscreen();
+  };
 
   return (
     <Layouts.Main>
       {items &&
         items.map((gif) => (
-          <Gif gif={gif} key={gif.id} width={window.innerWidth} />
+          <Gif
+            gif={gif}
+            key={gif.id}
+            width={window.innerWidth}
+            onGifClick={onClick}
+          />
         ))}
     </Layouts.Main>
   );

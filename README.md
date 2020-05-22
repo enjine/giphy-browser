@@ -1,5 +1,15 @@
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app), using the [Redux](https://redux.js.org/) and [Redux Toolkit](https://redux-toolkit.js.org/) template.
 
+## Notes
+
+- the starting point for this app was `npx create-react-app my-app --template redux-typescript-mui`
+- I am unsure if I've implemented the 'fullscreen detail view' as you were expecting, but I've run out of time.
+- The main tradeoffs I made in designing this solution were:
+  - choosing to use an NPM module for the infinite scroll rather than coding my own. From looking at that library's source it does not seem to limit how much DOM it renders, which would be a performance feature I would incorporate into an implementation I'd write from scratch.
+  - I also chose to use the Giphy Fetch API, as that seemed like a no-brainer
+  - I didn't opt to try and hack a solution into the Giphy Grid component to make it work with Redux -- that tradeoff was where I invested most of my time.
+- overall this came out OK, though I did wrestle with TypeScript as I've only just started using it recently -- it is growing on me though :)
+
 ## Available Scripts
 
 In the project directory, you can run:
