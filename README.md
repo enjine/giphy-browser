@@ -8,7 +8,9 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
   - choosing to use an NPM module for the infinite scroll rather than coding my own. From looking at that library's source it does not seem to limit how much DOM it renders, which would be a performance feature I would incorporate into an implementation I'd write from scratch.
   - I also chose to use the Giphy Fetch API, as that seemed like a no-brainer
   - I didn't opt to try and hack a solution into the Giphy Grid component to make it work with Redux -- that tradeoff was where I invested most of my time.
-- overall this came out OK, though I did wrestle with TypeScript as I've only just started using it recently -- it is growing on me though :)
+  - I opted to try to get through the functionality rather than write tests.
+  - I didn't have time to add error messaging to the user, just console logging
+- overall this came out OK, TypeScript is newish to me (as you can probably see) and I'm not as fast with it quite yet -- it is growing on me though :)
 
 ## Available Scripts
 

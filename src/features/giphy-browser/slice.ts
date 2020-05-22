@@ -39,7 +39,7 @@ export const slice = createSlice({
   name: 'giphy',
   initialState,
   reducers: {
-    setSelected: (state, action: PayloadAction<string>) => {
+    setSelectedId: (state, action: PayloadAction<string>) => {
       state.value = {
         ...state.value,
         selectedId: String(action.payload),
@@ -93,7 +93,7 @@ export const slice = createSlice({
 
 export const {
   nextPage,
-  setSelected,
+  setSelectedId,
   setDetail,
   setSearchTerm,
   setSearchResult,
@@ -104,33 +104,41 @@ export const loadData = (
   offset: number,
   limit: number = 20
 ): AppThunk => async (dispatch) => {
-  const data: GifsResult = await gf.trending({ offset, limit });
-  dispatch(nextPage(data));
+  try {
+    const data: GifsResult = await gf.trending({ offset, limit });
+    dispatch(nextPage(data));
+  } catch (e) {
+    console.error(e);
+  }
 };
 
 export const loadDetails = (id: string): AppThunk => async (dispatch) => {
-  const data: GifResult = await gf.gif(id);
-  dispatch(setDetail(data.data));
+  try {
+    const data: GifResult = await gf.gif(id);
+    dispatch(setDetail(data.data));
+  } catch (e) {
+    console.error(e);
+  }
 };
 
 export const loadSearch = (
   term: string,
   offset: number = 1
 ): AppThunk => async (dispatch) => {
-  const current: GifsResult = await gf.search(term, {
-    sort: 'relevant',
-    offset,
-  });
-  dispatch(
-    setSearchResult({
-      term,
-      current,
-    })
-  );
-};
-
-export const setSelectedId = (id: string): AppThunk => (dispatch) => {
-  dispatch(setSelected(id));
+  try {
+    const current: GifsResult = await gf.search(term, {
+      sort: 'relevant',
+      offset,
+    });
+    dispatch(
+      setSearchResult({
+        term,
+        current,
+      })
+    );
+  } catch (e) {
+    console.error(e);
+  }
 };
 
 export const selectAllItems = (state: RootState) => state.giphy.value.gifs;
