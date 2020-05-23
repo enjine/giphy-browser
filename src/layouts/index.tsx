@@ -1,5 +1,4 @@
-import React, { ReactNode } from "react";
-
+import React, { ReactNode } from 'react';
 
 import {
   createMuiTheme,
@@ -7,51 +6,43 @@ import {
   createStyles,
   Theme,
   WithStyles,
-  StyleRules
-} from "@material-ui/core/styles";
+  StyleRules,
+} from '@material-ui/core/styles';
 
-import {
-  MuiThemeProvider,
-  CssBaseline,
-} from "@material-ui/core";
+import { MuiThemeProvider, CssBaseline } from '@material-ui/core';
 
-import blue from "@material-ui/core/colors/blue";
-
+import blue from '@material-ui/core/colors/blue';
 
 const theme = createMuiTheme({
   palette: {
     primary: blue,
     secondary: {
-      main: "#fff"
+      main: '#fff',
     },
     background: {
-      default: "#fff"
-    }
-  }
+      default: '#fff',
+    },
+  },
 });
 
-const styles: (theme: Theme) => StyleRules<string> = theme =>
+const styles: (theme: Theme) => StyleRules<string> = (theme) =>
   createStyles({
-    root: {
-
-    },
+    root: {},
     app: {
-      textAlign: "center"
-    }
+      textAlign: 'center',
+    },
   });
 
-type Props = { children: ReactNode }
+type Props = { children: ReactNode };
 type AppProps = {} & WithStyles<typeof styles> & Props;
 
 const App = ({ classes, ...props }: AppProps) => (
   <MuiThemeProvider theme={theme}>
     <CssBaseline />
-    <div className={classes.app}>
-      {props.children}
-    </div>
+    <div className={classes.app}>{props.children}</div>
   </MuiThemeProvider>
 );
 
 export default {
-  Main: withStyles(styles)(App)
-}
+  Main: withStyles(styles)(App),
+};
