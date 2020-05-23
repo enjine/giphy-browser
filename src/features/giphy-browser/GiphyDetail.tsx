@@ -18,10 +18,10 @@ export const GiphyDetail = () => {
     }
   });
 
-  const onClick = (gif: IGif, e: SyntheticEvent) => {
+  const onClick = async (gif: IGif, e: SyntheticEvent) => {
     e.preventDefault();
     e.persist();
-    (e.target as HTMLElement).requestFullscreen();
+    await (e.target as HTMLElement).requestFullscreen();
   };
 
   return (

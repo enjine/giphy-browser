@@ -68,28 +68,31 @@ export const GiphyBrowser: React.FC<BrowserProps> = (props) => {
         <Typography variant="h3">Giphy Browser</Typography>
         <GiphySearch />
       </header>
-      <InfiniteScroll
-        dataLength={numLoaded}
-        next={fetchData}
-        hasMore={hasMore}
-        loader={<h4>Loading...</h4>}
-        endMessage={
-          <p style={{ textAlign: 'center' }}>
-            <b>No {`${resultsType}`} to display</b>
-          </p>
-        }
-      >
-        {gifs &&
-          gifs.map((gif) => (
-            <Gif
-              gif={gif}
-              key={gif.id}
-              width={window.innerWidth}
-              hideAttribution
-              onGifClick={onGifClick}
-            />
-          ))}
-      </InfiniteScroll>
+      <main id="content" style={{ height: '100vh', overflow: 'auto' }}>
+        <InfiniteScroll
+          scrollableTarget="content"
+          dataLength={numLoaded}
+          next={fetchData}
+          hasMore={hasMore}
+          loader={<h4>Loading...</h4>}
+          endMessage={
+            <p style={{ textAlign: 'center' }}>
+              <b>No {`${resultsType}`} to display</b>
+            </p>
+          }
+        >
+          {gifs &&
+            gifs.map((gif) => (
+              <Gif
+                gif={gif}
+                key={gif.id}
+                width={window.innerWidth}
+                hideAttribution
+                onGifClick={onGifClick}
+              />
+            ))}
+        </InfiniteScroll>
+      </main>
     </Layouts.Main>
   );
 };

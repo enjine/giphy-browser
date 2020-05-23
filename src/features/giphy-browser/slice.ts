@@ -65,7 +65,7 @@ export const slice = createSlice({
       const results =
         current?.data &&
         state.value.search?.results &&
-        term == state.value.search?.term
+        term === state.value.search?.term
           ? state.value.search.results.concat(current.data)
           : current?.data;
       state.value.search = {
@@ -82,7 +82,7 @@ export const slice = createSlice({
       };
     },
     nextPage: (state, action: PayloadAction<GifsResult>) => {
-      const { data, pagination, meta } = action.payload;
+      const { data } = action.payload;
       state.value = {
         gifs: state.value.gifs.concat(data),
         current: action.payload,
