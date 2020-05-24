@@ -2,19 +2,33 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 
 ## Notes
 
-- the starting point for this app was `npx create-react-app my-app --template redux-typescript-mui`
+- The starting point for this app was" `npx create-react-app giphy-browser --template redux-typescript-mui`
 - I am unsure if I've implemented the 'fullscreen detail view' as you were expecting, but I've run out of time.
 - The main tradeoffs I made in designing this solution were:
-  - choosing to use an NPM module for the infinite scroll rather than coding my own. From looking at that library's source it does not seem to limit how much DOM it renders, which would be a performance feature I would incorporate into an implementation I'd write from scratch.
-  - I also chose to use the Giphy Fetch API, as that seemed like a no-brainer
-  - I didn't opt to try and hack a solution into the Giphy Grid component to make it work with Redux -- that tradeoff was where I invested most of my time.
-  - I opted to try to get through the functionality rather than write tests.
+  - I chose to use an NPM module for the infinite scroll rather than coding my own.
+    - Upon reading its source it did not seem to limit how much DOM it renders; which would be a performance feature I would incorporate into my own implementation.
+  - I opted to use the Giphy Fetch API, as that seemed like the best way to go on all accounts.
+  - I opted not to try to hack a solution into the Giphy Grid component to make it work with Redux.
+  - I prioritized functionality over test coverage (not typically what I like to do, but typescript helps A LOT).
   - I didn't have time to add error messaging to the user, just console logging
-- overall this came out OK, TypeScript is newish to me (as you can probably see) and I'm not as fast with it quite yet -- it is growing on me though :)
+- Things I'd do if i had more time:
+  - Make the main page a responsive or flexbox grid
+  - Add some nicer styling
+  - Implement the detail page correctly
+  - Implement Gif dynamic resizing
+  - Implement DOM limiting on the InfiniteScroll component
+  - Add user-facing error handling out of the catch blocks
+  - Make the state model flatter to make it easier to reduce and select
+  - Add tests
+- Overall this came out OK, TypeScript is newish to me (as you can probably see) and I'm not as fast with it quite yet -- it is growing on me though :)
 
 ## Available Scripts
 
 In the project directory, you can run:
+
+### `yarn install`
+
+Installs all dependencies.
 
 ### `yarn start`
 
