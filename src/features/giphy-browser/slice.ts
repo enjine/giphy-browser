@@ -102,7 +102,7 @@ export const {
 
 export const loadData = (
   offset: number,
-  limit: number = 20
+  limit = 20
 ): AppThunk => async (dispatch) => {
   try {
     const data: GifsResult = await gf.trending({ offset, limit });
@@ -123,7 +123,7 @@ export const loadDetails = (id: string): AppThunk => async (dispatch) => {
 
 export const loadSearch = (
   term: string,
-  offset: number = 1
+  offset = 1
 ): AppThunk => async (dispatch) => {
   try {
     const current: GifsResult = await gf.search(term, {

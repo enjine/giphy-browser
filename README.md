@@ -20,6 +20,7 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
   - Add user-facing error handling out of the catch blocks
   - Make the state model flatter to make it easier to reduce and select
   - Add tests
+  - Add pre-commit hooks (husky/lint-staged)  for prettier and eslint
 - Overall this came out OK, TypeScript is newish to me (as you can probably see) and I'm not as fast with it quite yet -- it is growing on me though :)
 
 ## Available Scripts

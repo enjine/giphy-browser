@@ -19,7 +19,7 @@ import {
 import Layouts from '../../layouts';
 import GiphySearch from './GiphySearch';
 
-interface BrowserProps extends RouteComponentProps {}
+type BrowserProps = RouteComponentProps
 
 export const GiphyBrowser: React.FC<BrowserProps> = (props) => {
   const dispatch = useDispatch();
